@@ -1,15 +1,38 @@
 import pygame
 
 class Director():
+    # Manage the game / events
+    # keeps track of score
+    # Keeps the game moving (uses time)
     def __init__(self):
         self.width = 900
         self.height = 500
         self.name = 'cse210-04'
         self.background = (255, 255, 255)
         self.FPS = 60
+        self.score = 0
+
+        self.WIN = pygame.display.set_mode((self.width, self.height))
+
+    
+
+
+
 
     def start(self):
+
+
+        def draw_window(self):
+            # Background Color
+            self.WIN.fill(self.background)
+            pygame.display.update()
+
+        # Sets the game window name
+        pygame.display.set_caption(self.name)
+
+        # Setup the game clock (FPS)
         clock = pygame.time.Clock
+
         # Start Game loop
         run = True
         while run:
@@ -17,10 +40,14 @@ class Director():
             # Make sure Frame Rate doesn't go over FPS
             clock.tick(self.FPS)
 
-            # Event: Quit game
+            # Keep track of the in game events
             for event in pygame.event.get():
+                # Event: Quit game
                 if event.type == pygame.QUIT:
                     run = False
+
+            draw_window()
+        pygame.quit()
     
 
 
@@ -31,49 +58,19 @@ class field():
 
     
 
-        
-# manage the game (keep the game playing)
-# keeps track of score
-# Keeps the game moving (uses time)
-
-width = 900
-height = 500
-name = 'cse210-04'
-background = (255, 255, 255)
-FPS = 60
 
 
 
-WIN = pygame.display.set_mode((width,height))
-pygame.display.set_caption(name)
+
 
 def main():
-    
+    pass
+      
 
 
-    # set the clock
-    clock = pygame.time.Clock
-    run = True
-
-    while run:
-        # Make sure Frame Rate doesn't go over FPS
-        clock.tick(FPS)
-
-        # Event: Quit game
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-        
-        draw_window()
-        
 
 
-    pygame.quit()
 
-def draw_window():
-    # Background Color
-    WIN.fill(background)
-    pygame.display.update()
 
 
 
