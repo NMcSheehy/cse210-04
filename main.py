@@ -103,12 +103,11 @@ class Window():
         # Update title to show points
         pygame.display.set_caption(f'{self.name} | Score: {points.points}')
 
-
+        # Displays message
         self.font = pygame.font.Font('freesansbold.ttf', 32)
         text = self.font.render(F'{speech.message}', True, (0,0,0), (255, 255, 255))
         textRect = text.get_rect()
         self.display.blit(text, textRect)
-        
 
         # Change the screen
         pygame.display.update()
@@ -212,7 +211,6 @@ class Speech():
 
     def hurt(self):
         self.message = 'Ouch...'
-
 
 if __name__ == '__main__':
     main()
